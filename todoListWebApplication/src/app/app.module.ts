@@ -17,7 +17,10 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { LoginComponent } from './components/login/login.component'
+import { AccountService } from './services/account.service';
+import { LoginGuard } from './components/login/login.guard';
 
 
 @NgModule({
@@ -25,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     NotFoundComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    HomepageComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,8 +47,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatSnackBarModule
   ],
-  providers: [
-    {provide: "apiUrl", useValue:"https://api.limantech.com/todo"}
+  providers: [AccountService,LoginGuard,{provide: "apiUrl", useValue:"https://api.limantech.com/todo"}
   ],
   bootstrap: [AppComponent]
 })

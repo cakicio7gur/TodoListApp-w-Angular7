@@ -1,0 +1,18 @@
+<body class="text-center">
+  <form class="form-signin" #loginForm="ngForm" (ngSubmit)=login(loginForm)>
+
+    <img class="mb-4" src="https://cdn1.iconfinder.com/data/icons/business-office-and-internet-3-4/48/129-512.png"
+      alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Kullanıcı Girişi</h1>
+
+    <label class="sr-only">Kullanıcı Adı</label>
+    <input type="text" name="userName" id="userName" #userName="ngModel" [(ngModel)]="model.userName"
+      class="form-control" placeholder="Kullanıcı Adı" required autofocus>
+
+    <label class="sr-only">Password</label>
+    <input type="password" name="password" id="password" #password="ngModel" [(ngModel)]="model.password"
+    class="form-control" placeholder="Password" required>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Giriş Yap</button>
+  </form>
+</body>

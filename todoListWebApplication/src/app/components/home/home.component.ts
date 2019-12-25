@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { TodoService } from 'src/app/services/todo.service';
 import { MatSnackBar } from '@angular/material';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private todoService: TodoService, 
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private accountService:AccountService
   ) { }
 
   ngOnInit() {
@@ -82,6 +84,14 @@ export class HomeComponent implements OnInit {
         console.log(err);
        });
     }
+  }
+
+  isLoggedin() {
+    return this.accountService.isLoggedIn();
+  }
+
+  logOut(){
+    this.accountService.logOut();
   }
 
 }
